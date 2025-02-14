@@ -20,7 +20,7 @@ const Register = () => {
       const data = await res.json();
       if (!res.ok) throw new Error(data.message);
 
-      navigate("/login");
+      navigate("/Home");
     } catch (error) {
       console.error(error);
       alert("Registration failed");
