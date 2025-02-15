@@ -16,7 +16,7 @@ app.use("/api/events", eventRoutes);
 
 mongoose.connect(process.env.MONGO_URI);
 
-app.use("/auth", authRoutes);
+app.use("/api/auth", authRoutes);
 
 app.get("/", (req, res) => {
     res.send("The PWR House API is running...");
