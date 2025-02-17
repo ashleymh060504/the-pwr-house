@@ -1,11 +1,14 @@
 import React from "react";
+import HomeHeader from "../components/HomeHeader";
 import Login from "../components/Login";
 import Register from "../components/Register";
 
 
 function Home() {
   return (
-    <div className="container text-center">
+    <div>
+      <HomeHeader />
+      <div className="container text-center">
         <div className="row">
             <div className="col">
                 <Login />
@@ -14,6 +17,7 @@ function Home() {
                 <Register />
             </div>
         </div>
+      </div>
     </div>
   );
 }

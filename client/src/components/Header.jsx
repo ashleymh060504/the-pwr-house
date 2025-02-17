@@ -1,11 +1,25 @@
-function Header() {
+import React from "react";
+import { Navbar, Nav, Container } from "react-bootstrap";
+import logo from "../assets/the-pwr-house-logo.jpeg";
+
+const Header = () => {
   return (
-    <header>
-      <h1>The PWR House</h1>
-        <p>Parents Working Remotely</p>
-        <p>Balancing work and family</p>
-    </header>
+    <Navbar expand="lg" className="custom-navbar" variant="dark">
+      <Container>
+        <Navbar.Brand href="/" className="brand-title">
+          <img src={logo} alt="The PWR House" style={{ width: '300px', height: 'auto' }}/>
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ms-auto">
+            <Nav.Link href="/dashboard" className="nav-link">Dashboard</Nav.Link>
+            <Nav.Link href="/social" className="nav-link">PWR Connect</Nav.Link>
+            <Nav.Link href="/" className="nav-link">Sign Out</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
-}
+};
 
 export default Header;

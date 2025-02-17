@@ -25,6 +25,8 @@
   },
   "dependencies": {
     "@fullcalendar/daygrid": "^6.1.15",
-    "@fullcalendar/react": "^6.1.15"
+    "@fullcalendar/react": "^6.1.15",
+    "bootstrap": "^5.3.3",
+    "react-bootstrap": "^2.10.9"
   }
 }
