@@ -37,3 +37,18 @@ export const deleteEvent = async (req, res) => {
     res.status(500).json({ message: "Error deleting event", error });
   }
 };
+
+export const updateEvent = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { title, description, start, end, category } = req.body;
+    const updatedEvent = await Event.findByIdAndUpdate(
+      id,
+      { title, description, start, end, category },
+      { new: true }
+    );
+    res.json(updatedEvent);
+  } catch (error) {
+    res.status(500).json({ message: "Error updating event", error });
+  }
+};
