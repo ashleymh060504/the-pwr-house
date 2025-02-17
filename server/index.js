@@ -9,6 +9,7 @@ dotenv.config();
 
 const app = express();
 
+app.use(express.static("./client/dist"));
 app.use(express.json());
 app.use(cors());
 
@@ -19,8 +20,10 @@ mongoose.connect(process.env.MONGO_URI);
 app.use("/api/auth", authRoutes);
 
 app.get("/", (req, res) => {
-    res.send("The PWR House API is running...");
+//     res.send("The PWR House API is running...");
+    res.sendFile("./client/dist/index.html", { root: "./" });
 });
+    
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
