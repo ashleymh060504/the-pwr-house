@@ -9,7 +9,7 @@ function HomeHeader() {
         <Navbar.Brand href="/" className="brand-title">
         <img src={logo} alt="The PWR House" style={{ width: '300px', height: 'auto' }}/>
         </Navbar.Brand>
-        <p style={{fontFamily: "American Typewriter", color: "4a5759"}}>Balancing work and family</p>
+        <h5 style={{fontFamily: "American Typewriter", color: "4a5759"}}>Balancing work and family</h5>
       </Container>
     </Navbar>
   );

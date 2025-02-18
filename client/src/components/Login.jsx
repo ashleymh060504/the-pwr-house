@@ -25,10 +25,19 @@ const Login = () => {
       alert("Login failed");
     }
   };
-
+  const buttonStyle = {
+    backgroundColor: '#edafb8'
+  };
+  const formStyle = {
+    border: '2px solid #edafb8',
+    borderRadius: '10px',
+    backgroundColor: '#f7e1d7',
+    padding: '50px'
+  };
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div style={formStyle}>
+      <h4>Returning users, sign in here!</h4>
+      <form onSubmit={handleSubmit} style={{ marginTop: '40px'}}>
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
           <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={(e) => setEmail(e.target.value)} />
@@ -37,7 +46,7 @@ const Login = () => {
           <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
           <input type="password" className="form-control" id="exampleInputPassword1" onChange={(e) => setPassword(e.target.value)} />
         </div>
-        <button type="submit" className="btn btn-primary">Sign in</button>
+        <button type="submit" className="btn" style={buttonStyle}>Sign in</button>
       </form>
     </div>
   );

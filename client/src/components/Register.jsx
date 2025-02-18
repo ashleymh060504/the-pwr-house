@@ -26,10 +26,20 @@ const Register = () => {
       alert("Registration failed");
     }
   };
+  const buttonStyle = {
+    backgroundColor: '#edafb8'
+  };
+  const formStyle = {
+    border: '2px solid #edafb8',
+    borderRadius: '10px',
+    backgroundColor: '#f7e1d7',
+    padding: '50px'
+  };
 
   return (
-    <div>
-      <form className="row g-3" onSubmit={handleSubmit}>
+    <div style={formStyle}>
+      <h4>New users, sign up here!</h4>
+      <form className="row g-3" onSubmit={handleSubmit} style={{ marginTop: '40px' }}>
         <div className="col-md-6">
           <label htmlFor="inputName" className="form-label">First Name</label>
           <input type="text" className="form-control" id="inputName" onChange={(e) => setfirstName(e.target.value)} />
@@ -47,7 +57,7 @@ const Register = () => {
           <input type="password" className="form-control" id="inputPassword4" onChange={(e) => setPassword(e.target.value)} />
         </div>
         <div className="col-12">
-          <button type="submit" className="btn btn-primary">Sign up</button>
+          <button type="submit" className="btn" style={buttonStyle}>Sign up</button>
         </div>
       </form>
     </div>
