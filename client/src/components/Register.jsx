@@ -33,12 +33,13 @@ const Register = () => {
     border: '2px solid #edafb8',
     borderRadius: '10px',
     backgroundColor: '#f7e1d7',
-    padding: '50px'
+    padding: '50px',
+    marginLeft: '250px'
   };
 
   return (
     <div style={formStyle}>
-      <h4>New users, sign up here!</h4>
+      <h4 id="#register">New users, sign up here!</h4>
       <form className="row g-3" onSubmit={handleSubmit} style={{ marginTop: '40px' }}>
         <div className="col-md-6">
           <label htmlFor="inputName" className="form-label">First Name</label>

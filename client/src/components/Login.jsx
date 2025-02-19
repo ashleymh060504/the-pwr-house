@@ -31,12 +31,12 @@ const Login = () => {
   const formStyle = {
     border: '2px solid #edafb8',
     borderRadius: '10px',
-    backgroundColor: '#f7e1d7',
-    padding: '50px'
+    backgroundColor: '#b0c4b1',
+    padding: '30px'
   };
   return (
     <div style={formStyle}>
-      <h4>Returning users, sign in here!</h4>
+      <h5 id="#login">Returning users, sign in here!</h5>
       <form onSubmit={handleSubmit} style={{ marginTop: '40px'}}>
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
