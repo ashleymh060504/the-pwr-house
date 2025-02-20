@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const EventForm = ({ onEventAdded }) => {
+const EventForm = ({ onEventAdded, setOnEventAdded }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [start, setStart] = useState("");
@@ -11,6 +11,8 @@ const EventForm = ({ onEventAdded }) => {
     e.preventDefault();
     
     const newEvent = { title, description, start, end, category };
+
+    console.log(newEvent)
 
     const res = await fetch("http://localhost:3000/api/events", {
       method: "POST",
@@ -23,7 +25,8 @@ const EventForm = ({ onEventAdded }) => {
 
     if (res.ok) {
       const savedEvent = await res.json();
-      onEventAdded(savedEvent); // Refresh calendar after adding
+      // onEventAdded(savedEvent); // Refresh calendar after adding
+      setOnEventAdded(!onEventAdded)
       setTitle(""); setDescription(""); setStart(""); setEnd("");
     }
   };
@@ -38,6 +41,8 @@ const EventForm = ({ onEventAdded }) => {
         <option value="Work">Work</option>
         <option value="Home">Home</option>
       </select>
+      <textarea style={{width:"100%"}} placeholder="Event Description" value={description} onChange={(e) => setDescription(e.target.value)} required />
+      <br />
       <button type="submit">Add Event</button>
     </form>
   );
