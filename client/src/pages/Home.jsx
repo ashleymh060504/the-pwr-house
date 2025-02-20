@@ -2,20 +2,19 @@ import React from "react";
 import HomeHeader from "../components/HomeHeader";
 import Login from "../components/Login";
 import Register from "../components/Register";
-import hero from "../assets/PWR Hero.jpeg";
+// import './homeBackground.css';
 
 
 function Home() {
   return (
-    <div>
+    <div className="background-image">
       <HomeHeader />
-      <img src={hero} class="img-fluid" alt="Siblings sitting together outside" style={{ opacity: 0.2}}></img>
       <div className="container text-center">
         <div className="row">
-            <div className="col" style={{ maxWidth: "800px", margin: "auto" }}>
+            <div className="col">
                 <Register />
             </div>
-            <div className="col" style={{ maxWidth: "300px", maxHeight: "100px"}}>
+            <div className="col">
                 <Login />
             </div>
         </div>

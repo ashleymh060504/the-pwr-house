@@ -34,7 +34,8 @@ const Register = () => {
     borderRadius: '10px',
     backgroundColor: '#f7e1d7',
     padding: '50px',
-    marginLeft: '250px'
+    marginTop: '25px',
+    maxWidth: "600px", 
   };
 
   return (

@@ -32,8 +32,12 @@ const Login = () => {
     border: '2px solid #edafb8',
     borderRadius: '10px',
     backgroundColor: '#b0c4b1',
-    padding: '30px'
+    padding: '30px',
+    marginTop: '25px',
+    // maxWidth: "300px", 
+    // maxHeight: "100px"
   };
+
   return (
     <div style={formStyle}>
       <h5 id="#login">Returning users, sign in here!</h5>
