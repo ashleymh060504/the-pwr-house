@@ -31,9 +31,10 @@ const Login = () => {
   const formStyle = {
     border: '2px solid #edafb8',
     borderRadius: '10px',
-    backgroundColor: '#b0c4b1',
     padding: '30px',
     marginTop: '25px',
+    backgroundColor: '#4a5759',
+    color: '#dedbd2'
     // maxWidth: "300px", 
     // maxHeight: "100px"
   };

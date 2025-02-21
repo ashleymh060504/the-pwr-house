@@ -32,7 +32,7 @@ const Register = () => {
   const formStyle = {
     border: '2px solid #edafb8',
     borderRadius: '10px',
-    backgroundColor: '#f7e1d7',
+    backgroundColor: '#b0c4b1',
     padding: '50px',
     marginTop: '25px',
     maxWidth: "600px", 

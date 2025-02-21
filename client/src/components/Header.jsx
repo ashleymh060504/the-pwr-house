@@ -7,7 +7,7 @@ const Header = () => {
     <Navbar expand="lg" className="custom-navbar" variant="dark">
       <Container>
         <Navbar.Brand href="/" className="brand-title">
-          <img src={logo} alt="The PWR House" style={{ width: '300px', height: 'auto' }}/>
+          <img src={logo} alt="The PWR House" style={{ width: '300px', height: 'auto', borderRadius: '8px', borderStyle: 'solid', borderColor: '#b0c4b1' }}/>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
