@@ -2,21 +2,27 @@ import React, { useEffect, useState } from 'react';
 import { Table, Container } from 'react-bootstrap';
 import TaskForm from './TaskForm';
 
-const TaskList = ({ token }) => {
+const TaskList = ({ onTaskAdded }) => {
   const [tasks, setTasks] = useState([]);
 
-  
+  useEffect(() => { 
     const fetchTasks = async () => {
-      const response = await fetch('/api/tasks', {
-        headers: { Authorization: token }
+      try {
+      const res = await fetch("http://localhost:3000/api/tasks", {
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
-
-      const data = await response.json();
-      setTasks(data);
-    };
-  useEffect(() => {  
+      if (!res.ok) {
+        throw new Error("Failed to fetch tasks");
+      }
+      const data = await res.json();
+      setTasks(data.map(task => ({ name: task.name, category: task.category, details: task.details, dueDate: task.dueDate, _id: task._id })));
+    } catch (error) {
+      console.error("Failed to fetch tasks:", error);
+    }
+  };
+   
     fetchTasks();
-  }, [token]);
+  }, [onTaskAdded]);
 
   const handleTaskAdded = (newTask) => {
     setTasks([...tasks, newTask]);
@@ -25,7 +31,7 @@ const TaskList = ({ token }) => {
   return (
     <Container className="mt-4">
       <h2 className="text-center mb-4">Task Manager</h2>
-      <TaskForm token={token} onTaskAdded={handleTaskAdded} />
+      <TaskForm onTaskAdded={handleTaskAdded} />
 
     <Table striped bordered hover className="mt-4">
       <thead>

@@ -1,11 +1,10 @@
 import Task from '../models/Task.js';
 
-// Create a new task
 export const createTask = async (req, res) => {
   try {
     const { name, category, details, dueDate } = req.body;
     const newTask = new Task({ 
-      user: req.user.id, 
+      userId: req.user.id, 
       name, category, details, dueDate 
     });
 
@@ -16,10 +15,9 @@ export const createTask = async (req, res) => {
   }
 };
 
-// Get all tasks for a user sorted by due date
 export const getUserTasks = async (req, res) => {
   try {
-    const tasks = await Task.find({ userID: req.user.id }).sort({ dueDate: 1 });
+    const tasks = await Task.find({ userId: req.user.id }).sort({ dueDate: 1 });
     res.json(tasks);
   } catch (error) {
     res.status(500).json({ message: 'Error fetching tasks', error });
