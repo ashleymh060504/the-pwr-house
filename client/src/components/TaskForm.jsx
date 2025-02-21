@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 
-const TaskForm = ({ token, onTaskAdded }) => {
+const TaskForm = ({ onTaskAdded, setOnTaskAdded }) => {
   const [name, setName] = useState("");
   const [category, setCategory] = useState("Work");
   const [details, setDetails] = useState("");
@@ -17,7 +17,7 @@ const TaskForm = ({ token, onTaskAdded }) => {
       return;
     }
 
-   const newTask = { name, category, details, dueDate };
+        const newTask = { name, category, details, dueDate };
         
         console.log(newTask)
       
@@ -32,7 +32,6 @@ const TaskForm = ({ token, onTaskAdded }) => {
 
       if (res.ok) {
         const savedTask = await res.json();
-        // onTaskAdded(savedTask); // Refresh taskList after adding
         setOnTaskAdded(!onTaskAdded)
         setName(""); setCategory(""); setDetails(""); setDueDate("");
       }
