@@ -2,7 +2,7 @@ import Calendar from "../components/Calendar";
 import React, { useState } from "react";
 import Header from "../components/Header";
 import EventForm from "../components/EventForm";
-// import Tasks from "../components/Tasks";
+import TaskList from "../components/TaskList";
 
 function Dashboard() {
   const [onEventAdded, setOnEventAdded] = useState(false)
@@ -12,7 +12,7 @@ function Dashboard() {
       <Header />
       <Calendar onEventAdded={onEventAdded}/>
       <EventForm onEventAdded={onEventAdded} setOnEventAdded={setOnEventAdded}/>
-      {/* <Tasks /> */}
+      <TaskList />
     </div>
   );
 }

@@ -27,7 +27,7 @@ const EventForm = ({ onEventAdded, setOnEventAdded }) => {
       const savedEvent = await res.json();
       // onEventAdded(savedEvent); // Refresh calendar after adding
       setOnEventAdded(!onEventAdded)
-      setTitle(""); setDescription(""); setStart(""); setEnd("");
+      setTitle(""); setDescription(""); setStart(""); setEnd(""); setCategory("");
     }
   };
 
