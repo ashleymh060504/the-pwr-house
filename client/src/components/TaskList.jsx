@@ -8,7 +8,7 @@ const TaskList = ({ onTaskAdded }) => {
   useEffect(() => { 
     const fetchTasks = async () => {
       try {
-      const res = await fetch("http://localhost:3000/api/tasks", {
+      const res = await fetch("/api/tasks", {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       if (!res.ok) {

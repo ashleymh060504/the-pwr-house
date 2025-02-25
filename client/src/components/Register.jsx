@@ -11,16 +11,17 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:3000/api/auth/register", {
+      const res = await fetch("/api/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ firstName, lastName, email, password }),
       });
 
+      debugger;
       const data = await res.json();
       if (!res.ok) throw new Error(data.message);
 
-      navigate("/Home");
+      navigate("/dashboard");
     } catch (error) {
       console.error(error);
       alert("Registration failed");

@@ -15,7 +15,7 @@ const EventForm = ({ onEventAdded, setOnEventAdded }) => {
 
     console.log(newEvent)
 
-    const res = await fetch("http://localhost:3000/api/events", {
+    const res = await fetch("/api/events", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

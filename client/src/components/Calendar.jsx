@@ -8,7 +8,7 @@ const Calendar = ({onEventAdded}) => {
 
   useEffect(() => {
     const fetchEvents = async () => {
-      const res = await fetch("http://localhost:3000/api/events", {
+      const res = await fetch("/api/events", {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       const data = await res.json();
