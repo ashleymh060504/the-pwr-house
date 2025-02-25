@@ -1,4 +1,5 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { Form, Button } from "react-bootstrap";
 
 const EventForm = ({ onEventAdded, setOnEventAdded }) => {
   const [title, setTitle] = useState("");
@@ -31,19 +32,59 @@ const EventForm = ({ onEventAdded, setOnEventAdded }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" placeholder="Event Title" value={title} onChange={(e) => setTitle(e.target.value)} required />
-      <input type="datetime-local" value={start} onChange={(e) => setStart(e.target.value)} required />
-      <input type="datetime-local" value={end} onChange={(e) => setEnd(e.target.value)} required />
+
+  <Form onSubmit={handleSubmit} className="p-4 border rounded">
+      
+      <Form.Group className="mb-3">
+        <Form.Label>Event Title</Form.Label>
+        <Form.Control
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          required
+        />
+      </Form.Group>
+
+      <Form.Group className="mb-3">
+        <Form.Label>Start Date/Time</Form.Label>
+        <Form.Control
+          type="datetime-local"
+          value={start}
+          onChange={(e) => setStart(e.target.value)}
+          required
+        />
+      </Form.Group>
+
+      <Form.Group className="mb-3">
+        <Form.Label>End Date/Time</Form.Label>
+        <Form.Control
+          type="datetime-local"
+          value={end}
+          onChange={(e) => setEnd(e.target.value)}
+          required
+        />
+      </Form.Group>
+      <Form.Label>Category</Form.Label>
       <select className= "form-select form-select-sm" aria-label="Small select example" value={category} onChange={(e) => setCategory(e.target.value)}>
         <option selected>Select Category</option>
         <option value="Work">Work</option>
         <option value="Home">Home</option>
       </select>
-      <textarea style={{width:"100%"}} placeholder="Event Description" value={description} onChange={(e) => setDescription(e.target.value)} required />
-      <br />
-      <button type="submit">Add Event</button>
-    </form>
+
+      <Form.Group className="mb-3">
+        <Form.Label>Event Description</Form.Label>
+        <Form.Control
+          type="text"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          required
+        />
+      </Form.Group>
+
+      <Button variant="primary" type="submit">
+        Add Event
+      </Button>
+    </Form>
   );
 };
 

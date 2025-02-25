@@ -24,15 +24,14 @@ const TaskList = ({ onTaskAdded }) => {
     fetchTasks();
   }, [onTaskAdded]);
 
-  const handleTaskAdded = (newTask) => {
-    setTasks([...tasks, newTask]);
-  };
+  // const handleTaskAdded = (newTask) => {
+  //   setTasks([...tasks, newTask]);
+  // };
 
   return (
     <Container className="mt-4">
-      <h2 className="text-center mb-4">Task Manager</h2>
-      <TaskForm onTaskAdded={handleTaskAdded} />
-
+      <h2 className="text-center mb-4">Tasks</h2>
+      
     <Table striped bordered hover className="mt-4">
       <thead>
         <tr>
@@ -53,6 +52,8 @@ const TaskList = ({ onTaskAdded }) => {
         ))}
       </tbody>
     </Table>
+    {/* <TaskForm onTaskAdded={handleTaskAdded} /> */}
+
   </Container>
   );
 };

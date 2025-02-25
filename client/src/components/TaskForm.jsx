@@ -47,20 +47,17 @@ const TaskForm = ({ onTaskAdded, setOnTaskAdded }) => {
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder="Enter task name"
           required
         />
       </Form.Group>
 
       <Form.Group className="mb-3">
         <Form.Label>Category</Form.Label>
-        <Form.Control
-          type="text"
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-          placeholder="Enter category"
-          required
-        />
+          <select className= "form-select form-select-sm" aria-label="Small select example" value={category} onChange={(e) => setCategory(e.target.value)}>
+            <option selected>Select Category</option>
+            <option value="Work">Work</option>
+            <option value="Home">Home</option>
+          </select>
       </Form.Group>
 
       <Form.Group className="mb-3">
@@ -69,7 +66,6 @@ const TaskForm = ({ onTaskAdded, setOnTaskAdded }) => {
           as="textarea"
           value={details}
           onChange={(e) => setDetails(e.target.value)}
-          placeholder="Optional details"
         />
       </Form.Group>
 
