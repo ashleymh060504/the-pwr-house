@@ -2,13 +2,14 @@ import React from "react";
 import HomeHeader from "../components/HomeHeader";
 import Login from "../components/Login";
 import Register from "../components/Register";
-// import './homeBackground.css';
+import Welcome from "../components/Welcome";
 
 
 function Home() {
   return (
-    <div className="background-image">
+    <div>
       <HomeHeader />
+      <Welcome />
       <div className="container text-center">
         <div className="row">
             <div className="col">

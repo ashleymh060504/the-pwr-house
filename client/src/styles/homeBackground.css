@@ -12,9 +12,14 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url(${hero});
+    background-image: url('../assets/PWR-Hero.jpeg');
     background-size: cover;
     background-position: center;
     opacity: 0.2;
     z-index: -1;
 }
+
+.background-image h1 {
+    position: relative; /* To keep it above the background */
+    text-align: center;
+  }
