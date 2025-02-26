@@ -41,7 +41,7 @@ const Register = () => {
 
   return (
     <div style={formStyle}>
-      <h4 id="#register">New users, sign up here!</h4>
+      <h4 id="register">New users, sign up here!</h4>
       <form className="row g-3" onSubmit={handleSubmit} style={{ marginTop: '40px' }}>
         <div className="col-md-6">
           <label htmlFor="inputName" className="form-label">First Name</label>

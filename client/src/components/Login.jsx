@@ -41,7 +41,7 @@ const Login = () => {
 
   return (
     <div style={formStyle}>
-      <h5 id="#login">Returning users, sign in here!</h5>
+      <h5 id="login">Returning users, sign in here!</h5>
       <form onSubmit={handleSubmit} style={{ marginTop: '40px'}}>
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>

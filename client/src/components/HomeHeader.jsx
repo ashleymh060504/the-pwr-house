@@ -13,8 +13,8 @@ function HomeHeader() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav" >
             <Nav className="ms-auto">
-              <Nav.Link href="/" className="nav-link">Create an Account</Nav.Link>
-              <Nav.Link href="/" className="nav-link">Sign In</Nav.Link>
+              <Nav.Link a href="#register" className="nav-link" style={{ color: "4a5759" }}>Create an Account</Nav.Link>
+              <Nav.Link a href="#login" className="nav-link">Sign In</Nav.Link>
             </Nav>
           </Navbar.Collapse>
       </Container>

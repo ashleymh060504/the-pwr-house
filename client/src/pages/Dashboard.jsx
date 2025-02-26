@@ -16,27 +16,28 @@ function Dashboard() {
   };
 
   return (
-    <Container>
+    <>
       <Header />
-      
-      <Row>
-        <Col>
-        <Calendar onEventAdded={onEventAdded} />
-        </Col>
-        <Col>
-        <TaskList className="task-list"/>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-      <EventForm onEventAdded={onEventAdded} setOnEventAdded={setOnEventAdded}/>
-        </Col>
-        <Col>
-      <TaskForm onTaskAdded={handleTaskAdded} />
-        </Col>
+      <Container>
+        <Row>
+          <Col>
+            <Calendar onEventAdded={onEventAdded}/>
+          </Col>
+          <Col>
+            <TaskList/>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <EventForm onEventAdded={onEventAdded} setOnEventAdded={setOnEventAdded}/>
+          </Col>
+          <Col>
+            <TaskForm onTaskAdded={handleTaskAdded} />
+          </Col>
       </Row>
     </Container>
+    </>
   );
 }
-
+  
 export default Dashboard;
