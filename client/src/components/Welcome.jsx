@@ -1,11 +1,20 @@
 import React from "react";
-import "../styles/homeBackground.css";
+import "../styles/homePage.css";
 
 const Welcome = () => {
     return (
         <div className= "img-fluid background-image" >
-            <h1>Welcome.</h1>
-            <h1>Explanation of the site here.Explanation of the site here.Explanation of the site here.Explanation of the site here.Explanation of the site here.Explanation of the site here.Explanation of the site here.Explanation of the site here.Explanation of the site here.Explanation of the site here.Explanation of the site here.Explanation of the site here.Explanation of the site here.Explanation of the site here.Explanation of the site here.Explanation of the site here.Explanation of the site here.Explanation of the site here.Explanation of the site here.Explanation of the site here.Explanation of the site here.Explanation of the site here.Explanation of the site here.Explanation of the site here.Explanation of the site here.Explanation of the site here.Explanation of the site here.Explanation of the site here.</h1>
+            <section>
+                <h1>Welcome.</h1>
+                <p>This site is for all of you Moms and Dads out there, working from home and facing the daily challenge of balancing both work and the needs of your child(ren).</p>
+                <p>Create an account today to get organized, separating your "Work" and "Home" tasks and calendar, while keeping it all in one place!</p>
+            </section>
+            <br></br>
+            <section>
+                <h4>COMING SOON!</h4>
+                <p>Connect with other PWR's by visiting PWR Connect!</p>
+                <p>Get advice, vent your frustrations, share tips and tricks, etc! Make connections and be encouraged!</p>
+            </section>
         </div>
     );
 }

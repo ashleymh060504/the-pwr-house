@@ -19,7 +19,20 @@
     z-index: -1;
 }
 
-.background-image h1 {
+.background-image h1, h4 {
     position: relative; /* To keep it above the background */
     text-align: center;
+  }
+
+.background-image p {
+    text-align: center;
+    text-indent: 50px;
+    letter-spacing: 3px;
+    font-size: 20px;
+  }
+
+.background-image section {
+    margin: 20px;
+    margin-right: 20px;
+    padding: 20px;
   }
