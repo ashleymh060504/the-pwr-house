@@ -47,3 +47,13 @@ export const loginUser = async (req, res) => {
     res.status(500).json({ message: "Error logging in", error });
   }
 };
+
+export const getUsers = async (req, res) => {
+  try {
+    const users = await User.find();
+    res.json(users);
+  }
+  catch (error) {
+    res.status(500).json({ message: "Error getting users", error });
+  }
+};
