@@ -2,7 +2,7 @@ import React from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import logo from "../assets/the-pwr-house-logo.jpeg";
 
-const Header = () => {
+const HeaderSocial = () => {
   return (
     <Navbar expand="lg">
       <Container>
@@ -13,7 +13,7 @@ const Header = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse>
           <Nav className="ms-auto">
-            <Nav.Link href="/social"className="nav-link">PWR Connect</Nav.Link>
+            <Nav.Link href="/dashboard"className="nav-link">Dashboard</Nav.Link>
             <Nav.Link href="/" className="nav-link">Sign Out</Nav.Link>
           </Nav>
         </Navbar.Collapse>
@@ -22,4 +22,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HeaderSocial;

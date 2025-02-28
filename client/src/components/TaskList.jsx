@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Table, Container } from 'react-bootstrap';
-import TaskForm from './TaskForm';
 
 const TaskList = ({ onTaskAdded }) => {
   const [tasks, setTasks] = useState([]);
@@ -24,18 +23,14 @@ const TaskList = ({ onTaskAdded }) => {
     fetchTasks();
   }, [onTaskAdded]);
 
-  // const handleTaskAdded = (newTask) => {
-  //   setTasks([...tasks, newTask]);
-  // };
-
   return (
     <Container className="mt-4">
-      <h2 className="text-center mb-4">Tasks</h2>
+      <h2 className="text-center mb-4">To Do</h2>
       
     <Table striped bordered hover className="mt-4">
       <thead>
         <tr>
-          <th>Task Name</th>
+          <th>Task</th>
           <th>Category</th>
           <th>Details</th>
           <th>Due Date</th>
@@ -52,8 +47,6 @@ const TaskList = ({ onTaskAdded }) => {
         ))}
       </tbody>
     </Table>
-    {/* <TaskForm onTaskAdded={handleTaskAdded} /> */}
-
   </Container>
   );
 };

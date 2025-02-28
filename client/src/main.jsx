@@ -1,12 +1,12 @@
 import { StrictMode } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { createRoot } from 'react-dom/client';
-import './styles/index.css';
 import App from './App.jsx';
 import Home from './pages/Home.jsx';
 import Dashboard from './pages/Dashboard.jsx';
 import Social from './pages/Social.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles/index.css';
 
 const BrowserRouter = createBrowserRouter([
   {

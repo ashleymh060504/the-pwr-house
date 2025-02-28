@@ -17,6 +17,7 @@ const Calendar = ({onEventAdded}) => {
 
     fetchEvents();
   }, [onEventAdded]);
+  
 
   return (
     <>
@@ -31,13 +32,13 @@ const Calendar = ({onEventAdded}) => {
         }
         }
       />
-      <div class="container" id="staticBackdrop" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="staticBackdropLabel" style={{fontWeight: "bold"}}>Event Title: {displayedEvent?.title}</h1>
+      <div style={{borderStyle: "groove", marginBottom: "40px"}} className="container" id="staticBackdrop" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h1 className="modal-title fs-5" id="staticBackdropLabel" style={{fontWeight: "bold"}}>Event Title: {displayedEvent?.title}</h1>
             </div>
-            <div class="modal-body">
+            <div className="modal-body">
               <p>Start: {displayedEvent?.start?.toLocaleString()}</p>
               <p>End: {displayedEvent?.end?.toLocaleString()}</p>
               {/* <p>Category: {displayedEvent?.category}</p> */}

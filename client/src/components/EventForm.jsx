@@ -30,10 +30,24 @@ const EventForm = ({ onEventAdded, setOnEventAdded }) => {
       setTitle(""); setDescription(""); setStart(""); setEnd(""); setCategory("");
     }
   };
+  const buttonStyle = {
+    backgroundColor: '#edafb8',
+    color: '#4a5759'
+  };
+
+  const formStyle = {
+    border: '2px solid #edafb8',
+    borderRadius: '10px',
+    backgroundColor: '#b0c4b1',
+    padding: '50px',
+    marginTop: '25px',
+    maxWidth: "600px", 
+    marginBottom: "50px"
+  };
 
   return (
 
-  <Form onSubmit={handleSubmit} className="p-4 border rounded">
+  <Form style={formStyle} onSubmit={handleSubmit} className="p-4 border rounded">
       
       <Form.Group className="mb-3">
         <Form.Label>Event Title</Form.Label>
@@ -77,11 +91,10 @@ const EventForm = ({ onEventAdded, setOnEventAdded }) => {
           type="text"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          required
         />
       </Form.Group>
 
-      <Button variant="primary" type="submit">
+      <Button style={buttonStyle} type="submit">
         Add Event
       </Button>
     </Form>

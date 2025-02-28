@@ -36,9 +36,23 @@ const TaskForm = ({ onTaskAdded, setOnTaskAdded }) => {
         setName(""); setCategory(""); setDetails(""); setDueDate("");
       }
   };
+  const buttonStyle = {
+    backgroundColor: '#edafb8',
+    color: '#4a5759'
+  };
+
+  const formStyle = {
+    border: '2px solid #edafb8',
+    borderRadius: '10px',
+    backgroundColor: '#b0c4b1',
+    padding: '50px',
+    marginTop: '25px',
+    maxWidth: "600px", 
+    
+  };
 
   return (
-    <Form onSubmit={handleSubmit} className="p-4 border rounded">
+    <Form style={formStyle} onSubmit={handleSubmit} className="p-4 border rounded">
       {error && <Alert variant="danger">{error}</Alert>}
       
       <Form.Group className="mb-3">
@@ -64,6 +78,7 @@ const TaskForm = ({ onTaskAdded, setOnTaskAdded }) => {
         <Form.Label>Details</Form.Label>
         <Form.Control
           as="textarea"
+          style={{ height: "109px" }}
           value={details}
           onChange={(e) => setDetails(e.target.value)}
         />
@@ -79,7 +94,7 @@ const TaskForm = ({ onTaskAdded, setOnTaskAdded }) => {
         />
       </Form.Group>
 
-      <Button variant="primary" type="submit">
+      <Button  style={buttonStyle} type="submit">
         Add Task
       </Button>
     </Form>

@@ -11,9 +11,9 @@ function HomeHeader() {
         </Navbar.Brand>
         <h5 style={{fontFamily: "American Typewriter", color: "4a5759", marginTop: '10px'}}>Balancing work and family</h5>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav" >
+          <Navbar.Collapse  >
             <Nav className="ms-auto">
-              <Nav.Link a href="#register" className="nav-link" style={{ color: "4a5759" }}>Create an Account</Nav.Link>
+              <Nav.Link a href="#register" className="nav-link">Create an Account</Nav.Link>
               <Nav.Link a href="#login" className="nav-link">Sign In</Nav.Link>
             </Nav>
           </Navbar.Collapse>
