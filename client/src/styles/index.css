@@ -17,6 +17,12 @@ a {
   color: #edafb8;
   text-decoration: inherit;
 }
+
+footer {
+  margin-top: 4em;
+  text-align: center;
+}
+
 a:hover {
   color: #edafb8;
 }
