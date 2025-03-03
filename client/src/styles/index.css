@@ -35,6 +35,28 @@ body {
   min-height: 100vh;
 }
 
+.fc-event {
+  background-color: #f7e1d7;
+  color: #4a5759;
+}
+
+/* .fc-day {
+  color: #4a5759;
+  /* background-color: #f7e1d7; */
+} */
+/* .fc-day-today {
+  background-color: #edafb8;
+} */
+/* .fc-event-dot {
+  color: #edafb8;
+} */
+/* .fc-daygrid {
+  color: #4a5759;
+} */
+/* .fc-view {
+  color: #4a5759;
+} */
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
@@ -63,9 +85,9 @@ button:focus-visible {
   :root {
     color: #213547;
   }
-  a:hover {
+  /* a:hover {
     color: #747bff;
-  }
+  } */
   button {
     background-color: #f9f9f9;
   }
