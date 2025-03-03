@@ -8,6 +8,7 @@ import TaskForm from "../components/TaskForm";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import "../styles/homePage.css";
 
 function Dashboard() {
   const [onEventAdded, setOnEventAdded] = useState(false)
@@ -18,9 +19,9 @@ function Dashboard() {
   return (
     <>
       <Header />
-      <Container>
+      <Container fluid className="img-fluid background-image">
       <h2 style={{marginTop: "30px", marginBottom: "20px", textAlign: "center"}}>Welcome to your dashboard.</h2>
-      <h5 style={{marginBottom: "60px", textAlign: "center"}}>Here you can manage your events and tasks. Use the forms at the bottom of the page to add events to the calendar, or tasks to your To Do list!</h5>
+      <h5 style={{marginBottom: "60px", textAlign: "center"}}>Here you can manage your events and tasks.<br></br> Use the forms at the bottom of the page to add events to the calendar, <br></br>or tasks to your To Do list!</h5>
         <Row>
           <Col>
             <Calendar onEventAdded={onEventAdded}/>

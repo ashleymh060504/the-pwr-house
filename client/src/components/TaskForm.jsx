@@ -42,7 +42,6 @@ const TaskForm = ({ onTaskAdded, setOnTaskAdded }) => {
   };
 
   const formStyle = {
-    border: '2px solid #edafb8',
     borderRadius: '10px',
     backgroundColor: '#b0c4b1',
     padding: '50px',
