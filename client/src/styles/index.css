@@ -35,6 +35,13 @@ body {
   min-height: 100vh;
 }
 
+.fc-daygrid-day-number {
+  color: #4a5759;
+}
+.fc-col-header-cell-cushion {
+  color: #4a5759;
+}
+
 .fc-event {
   background-color: #f7e1d7;
   color: #4a5759;
