@@ -23,18 +23,18 @@ function Dashboard() {
       <h2 style={{marginTop: "30px", marginBottom: "20px", textAlign: "center"}}>Welcome to your dashboard.</h2>
       <h5 style={{marginBottom: "60px", textAlign: "center"}}>Here you can manage your events and tasks.<br></br> Use the forms at the bottom of the page to add events to the calendar, <br></br>or tasks to your To Do list!</h5>
         <Row>
-          <Col>
+          <Col xs={12} md={8}>
             <Calendar onEventAdded={onEventAdded}/>
           </Col>
-          <Col xs={4}>
+          <Col xs={12} md={4}>
             <TaskList/>
           </Col>
         </Row>
         <Row>
-          <Col>
+          <Col xs={12} md={6}>
             <EventForm onEventAdded={onEventAdded} setOnEventAdded={setOnEventAdded}/>
           </Col>
-          <Col>
+          <Col xs={12} md={6}>
             <TaskForm onTaskAdded={handleTaskAdded} />
           </Col>
       </Row>

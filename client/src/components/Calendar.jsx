@@ -27,7 +27,7 @@ const Calendar = ({onEventAdded}) => {
         initialView="dayGridMonth"
         events={events}
         eventClick={function (info) {
-          info.jsEvent.preventDefault(); // don't let the browser navigate
+          info.jsEvent.preventDefault(); 
           console.log(info)
           setDisplayedEvent(info.event);
         }
