@@ -12,10 +12,10 @@ function Home() {
       <Welcome />
       <div className="container text-center">
         <div className="row">
-            <div className="col">
+            <div className="col-sm-12 col-md-6">
                 <Register />
             </div>
-            <div className="col">
+            <div className="col-sm-12 col-md-6">
                 <Login />
             </div>
         </div>
