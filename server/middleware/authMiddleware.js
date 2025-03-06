@@ -19,15 +19,3 @@ export const verifyToken = async (req, res, next) => {
     res.status(401).json({ message: "Access Denied. No token provided." });
   }
 };
-//     // Attach user data to request object
-//     if (!token) {
-//       return res.status(401).json({ message: "Access Denied. No token provided." });
-//     }
-
-//     const verified = jwt.verify(token, process.env.JWT_SECRET); // Verify token
-//     req.user = verified; // Attach user data to request object
-//     next(); // Proceed to next middleware or route handler
-//   } catch (error) {
-//     res.status(403).json({ message: "Invalid or expired token." });
-//   }
-// };

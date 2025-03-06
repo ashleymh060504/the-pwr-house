@@ -15,7 +15,7 @@ function Social() {
     <>
     <HeaderSocial/>
     <Container fluid style={{ textAlign: "center", marginTop: "100px" }}>
-      <h1 >PWR Connect beta version!</h1>
+      <h1 >PWR Connect under construction...</h1>
       <PostForm token={token} onPostAdded={() => setRefresh(!refresh)} />
       <PostList token={token} key={refresh} />
     </Container>

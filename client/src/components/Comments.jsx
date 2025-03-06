@@ -9,7 +9,7 @@ const Comments = ({ postId, token }) => {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const res = await fetch(`/api/posts/${postId}/comments`, {
+        const res = await fetch(`/api/comments/${postId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -18,13 +18,15 @@ const Comments = ({ postId, token }) => {
         }
 
         const data = await res.json();
-        setComments(data.map((comment) => ({ ...comment, user: comment.userId })));
+       setComments(Array.isArray(data) ? data : []);
       } catch (error) {
         console.error("Error fetching comments:", error);
       }
     };
 
-    fetchComments();
+    if (postId) {
+      fetchComments();
+    }
   }, [postId, token]);
 
   const handleAddComment = async (e) => {
@@ -32,13 +34,16 @@ const Comments = ({ postId, token }) => {
     if (!newComment.trim()) return;
 
     try {
-      const res = await fetch(`/api/posts/${postId}/comments`, {
+      const res = await fetch("/api/comments", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({ text: newComment }),
+        body: JSON.stringify({ 
+          postId: postId._id,
+          content: newComment 
+        }),
       });
 
       if (!res.ok) {

@@ -1,10 +1,15 @@
 import Comment from "../models/Comment.js";
 import Post from "../models/Post.js";
+import mongoose from "mongoose";
 
 // Create a new comment on a post
 export const addComment = async (req, res) => {
   try {
     const { postId, content } = req.body;
+
+    if (!req.body.postId) {
+      return res.status(400).json({ message: "postId is required" });
+  }
 
     if (!content) {
       return res.status(400).json({ message: "Comment text is required." });
@@ -16,30 +21,33 @@ export const addComment = async (req, res) => {
     }
 
     const newComment = new Comment({
-      content,
-      userId: req.user.id, // Extracted from JWT
-      post: postId,
+      postId,
+      userId: req.user.id,
+      content
     });
-
     await newComment.save();
 
-    post.comments.push(comment._id); // Add comment to post's comments array
+    if (!post.comments) {
+      post.comments = [];
+    }
+
+    post.comments.push(newComment._id); // Add comment to post's comments array
     await post.save();
 
-    res.status(201).json(comment);
+    res.status(201).json(newComment);
   } catch (error) {
     console.error("Error adding comment:", error);
     res.status(500).json({ message: "Server error." });
   }
 };
 
-// Get all comments for a specific post
 export const getCommentsByPost = async (req, res) => {
   try {
-    const { postId } = req.params;
+    console.log("Received postId:", req.params.postId);
+    const { postId } = new mongoose.Types.ObjectId(req.params.postId);
 
     const comments = await Comment.find({ post: postId }).populate("userId", "firstName lastName"); // Populate user details
-
+    console.log("Comments found:", comments);
     res.status(200).json(comments);
   } catch (error) {
     console.error("Error retrieving comments:", error);
@@ -47,7 +55,7 @@ export const getCommentsByPost = async (req, res) => {
   }
 };
 
-// Delete a comment (only the comment owner can delete)
+
 export const deleteComment = async (req, res) => {
   try {
     const { commentId } = req.params;
@@ -58,7 +66,7 @@ export const deleteComment = async (req, res) => {
       return res.status(404).json({ message: "Comment not found." });
     }
 
-    if (comment.userID.toString() !== req.user.id.toString()) {
+    if (comment.userId.toString() !== req.user.id.toString()) {
       return res.status(403).json({ message: "Unauthorized to delete this comment." });
     }
 

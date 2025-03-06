@@ -34,8 +34,11 @@ export const getPosts = async (req, res) => {
 export const deletePost = async (req, res) => {
   try {
     const { id } = req.params;
-    await Post.findById(id);
+    const post = await Post.findById(id);
 
+    if (!post) {
+      return res.status(404).json({ message: "Post not found." });
+    }
     if (post.userId.toString() !== req.user.id) {
       return res.status(403).json({ message: "Unauthorized to delete this post." });
     }
