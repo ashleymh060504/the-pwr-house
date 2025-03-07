@@ -13,15 +13,16 @@ const TaskForm = ({ onTaskAdded, setOnTaskAdded }) => {
     setError(null);
 
     if (!name || !category || !dueDate) {
-      setError('Please fill in all required fields.');
+      setError("Please fill in all required fields.");
       return;
     }
 
-        const newTask = { name, category, details, dueDate };
-        
-        console.log(newTask)
-      
-        const res = await fetch("/api/tasks", {
+    const newTask = { name, category, details, dueDate };
+
+    console.log(newTask);
+
+    try {
+      const res = await fetch("/api/tasks", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -30,12 +31,26 @@ const TaskForm = ({ onTaskAdded, setOnTaskAdded }) => {
         body: JSON.stringify(newTask),
       });
 
-      if (res.ok) {
-        const savedTask = await res.json();
-        setOnTaskAdded(!onTaskAdded)
-        setName(""); setCategory(""); setDetails(""); setDueDate("");
+      if (!res.ok) {
+        throw new Error("Failed to save task");
       }
-  };
+
+      const savedTask = await res.json();
+      
+      // Ensure the state setter is used properly
+      setOnTaskAdded(prev => !prev);
+
+      // Clear form fields
+      setName("");
+      setCategory("");
+      setDetails("");
+      setDueDate("");
+    } catch (error) {
+      setError("Failed to save task. Please try again.");
+      console.error(error);
+    }
+};
+
   const buttonStyle = {
     backgroundColor: '#edafb8',
     color: '#4a5759'
