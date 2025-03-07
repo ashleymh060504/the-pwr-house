@@ -15,7 +15,15 @@ const TaskList = ({ onTaskAdded }) => {
         throw new Error("Failed to fetch tasks");
       }
       const data = await res.json();
-      setTasks(data.map(task => ({ name: task.name, category: task.category, details: task.details, dueDate: task.dueDate, _id: task._id })));
+      console.log("Fetched Tasks from backend:", data);
+
+      setTasks(data.map(task => ({ 
+        name: task.name,
+        category: task.category,
+        details: task.details,
+        dueDate: task.dueDate,
+        _id: task._id
+      })));
     } catch (error) {
       console.error("Failed to fetch tasks:", error);
     }
@@ -64,7 +72,7 @@ const TaskList = ({ onTaskAdded }) => {
           <th>Task</th>
           <th>Category</th>
           <th>Details</th>
-          <th>Due Date</th>
+          <th style={{ minWidth: "150px"}}>Due Date</th>
         </tr>
       </thead>
       <tbody>
@@ -81,7 +89,7 @@ const TaskList = ({ onTaskAdded }) => {
             <td>{task.name}</td>
             <td>{task.category}</td>
             <td>{task.details}</td>
-            <td>{new Date(task.dueDate).toLocaleDateString()}</td>
+            <td>{task.dueDate ? new Date(task.dueDate).toISOString().split("T")[0] : "No due date"}</td>
           </tr>
         ))}
       </tbody>

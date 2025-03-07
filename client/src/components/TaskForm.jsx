@@ -17,9 +17,13 @@ const TaskForm = ({ onTaskAdded, setOnTaskAdded }) => {
       return;
     }
 
-    const newTask = { name, category, details, dueDate };
+    const formattedDueDate = new Date(dueDate).toISOString().split("T")[0]; 
 
-    console.log(newTask);
+    console.log("Formatted Due Date:", formattedDueDate);
+
+    const newTask = { name, category, details, dueDate: formattedDueDate };
+
+    console.log("Submitting Task:", newTask);
 
     try {
       const res = await fetch("/api/tasks", {
@@ -38,7 +42,11 @@ const TaskForm = ({ onTaskAdded, setOnTaskAdded }) => {
       const savedTask = await res.json();
       
       // Ensure the state setter is used properly
-      setOnTaskAdded(prev => !prev);
+      if (typeof setOnTaskAdded === "function") {
+        setOnTaskAdded(prev => !prev);
+    } else {
+        console.error("setOnTaskAdded is not a function:", setOnTaskAdded);
+    }
 
       // Clear form fields
       setName("");

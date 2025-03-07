@@ -12,9 +12,8 @@ import "../styles/homePage.css";
 
 function Dashboard() {
   const [onEventAdded, setOnEventAdded] = useState(false)
-  const handleTaskAdded = (newTask) => {
-    setTasks([...tasks, newTask]);
-  };
+  const [onTaskAdded, setOnTaskAdded] = useState(false); 
+  
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -31,7 +30,7 @@ function Dashboard() {
             <Calendar onEventAdded={onEventAdded}/>
           </Col>
           <Col xs={12} md={4}>
-            <TaskList/>
+            <TaskList onTaskAdded={onTaskAdded}/>
           </Col>
         </Row>
         <Row>
@@ -39,7 +38,7 @@ function Dashboard() {
             <EventForm onEventAdded={onEventAdded} setOnEventAdded={setOnEventAdded}/>
           </Col>
           <Col xs={12} md={6}>
-            <TaskForm onTaskAdded={handleTaskAdded} />
+            <TaskForm onTaskAdded={onTaskAdded} setOnTaskAdded={setOnTaskAdded}/>
           </Col>
       </Row>
     </Container>
