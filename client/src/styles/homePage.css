@@ -19,7 +19,7 @@
     z-index: -1;
 }
 
-.background-image h1, h4 {
+.background-image h1, h3 {
     position: relative; /* To keep it above the background */
     text-align: center;
   }

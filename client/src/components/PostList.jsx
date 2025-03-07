@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
-import Post from "./Post";
 import { jwtDecode } from "jwt-decode";
 import Comments from "./Comments";
 
@@ -52,9 +51,6 @@ const PostList = ({ token }) => {
 
   return (
     <div>
-      {/* {posts.map((post) => (
-         <Post key={post._id} post={post} token={token} />
-      ))} */}
       {posts.map((post) => (
         <div key={post._id} className="p-3 border mb-3">
           <h8 style={{color: "#b0c4b1"}}>-{post.user.firstName}</h8>

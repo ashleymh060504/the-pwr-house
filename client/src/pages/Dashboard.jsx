@@ -25,7 +25,7 @@ function Dashboard() {
       <Header />
       <Container fluid className="img-fluid background-image">
       <h2 style={{marginTop: "30px", marginBottom: "20px", textAlign: "center"}}>Welcome to your dashboard.</h2>
-      <h5 style={{marginBottom: "60px", textAlign: "center"}}>Here you can manage your events and tasks.<br></br> Use the forms at the bottom of the page to add events to the calendar, <br></br>or tasks to your To Do list!</h5>
+      <h5 style={{marginBottom: "60px", textAlign: "center"}}>Use the forms at the bottom of the page to add events to the calendar, or tasks to your To Do list!<br></br>Click on the events in your calendar to view or edit them.<br></br>And check the boxes next to your Tasks as you complete them(delete when ready)!</h5>
         <Row>
           <Col xs={12} md={8}>
             <Calendar onEventAdded={onEventAdded}/>

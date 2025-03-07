@@ -12,10 +12,10 @@ const Welcome = () => {
             </section>
             <br></br>
             <section>
-                <h4>COMING SOON!</h4>
+                <h3>And since it takes a village...</h3>
                 <br></br>
                 <p>Connect with other PWR's by visiting PWR Connect!</p>
-                <p>Ask or answer questions of other PWR's, get advice or ideas, share your tips and tricks, etc! <br></br> Make connections and be encouraged!</p>
+                <p>Ask or answer questions of other PWR's, get suggestions and ideas, share your tips and tricks, etc! <br></br> Make connections and be encouraged!</p>
             </section>
         </div>
     );

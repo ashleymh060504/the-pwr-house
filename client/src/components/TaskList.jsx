@@ -3,6 +3,7 @@ import { Table, Container } from 'react-bootstrap';
 
 const TaskList = ({ onTaskAdded }) => {
   const [tasks, setTasks] = useState([]);
+  const [selectedTasks, setSelectedTasks] = useState(new Set());
 
   useEffect(() => { 
     const fetchTasks = async () => {
@@ -23,6 +24,35 @@ const TaskList = ({ onTaskAdded }) => {
     fetchTasks();
   }, [onTaskAdded]);
 
+  const handleCheckboxChange = (taskId) => {
+    setSelectedTasks(prevSelectedTasks => {
+    const newSelectedTasks = new Set(prevSelectedTasks);
+    if (newSelectedTasks.has(taskId)) {
+      newSelectedTasks.delete(taskId);
+    } else {
+      newSelectedTasks.add(taskId);
+    }
+    return newSelectedTasks;
+  });
+};
+
+  const handleDelete = async () => {
+    const tasksToDelete = Array.from(selectedTasks);
+    const token = localStorage.getItem("token");
+    try {
+      await Promise.all(tasksToDelete.map(taskId => {
+        fetch(`/api/tasks/${taskId}`, {
+          method: "DELETE",
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        setTasks(tasks.filter(task => !tasksToDelete.includes(task._id)));
+        setSelectedTasks(new Set());
+      }));
+    } catch (error) {
+      console.error("Failed to delete tasks:", error);
+    }
+  };
+
   return (
     <Container className="mt-4">
       <h2 className="text-center mb-4">To Do</h2>
@@ -30,6 +60,7 @@ const TaskList = ({ onTaskAdded }) => {
     <Table striped bordered hover className="mt-4">
       <thead>
         <tr>
+          <th></th>
           <th>Task</th>
           <th>Category</th>
           <th>Details</th>
@@ -39,6 +70,14 @@ const TaskList = ({ onTaskAdded }) => {
       <tbody>
         {tasks.map(task => (
           <tr key={task._id}>
+            <td>
+              <input
+                type="checkbox"
+                style={{color: "white"}}
+                onChange={() => handleCheckboxChange(task._id)}
+                checked={selectedTasks.has(task._id)}
+              />
+            </td>
             <td>{task.name}</td>
             <td>{task.category}</td>
             <td>{task.details}</td>
@@ -46,6 +85,13 @@ const TaskList = ({ onTaskAdded }) => {
           </tr>
         ))}
       </tbody>
+      <tfoot>
+        <tr>
+          <td colSpan="5" className="text-center">
+          <button onClick={handleDelete} style={{backgroundColor:"#2c3e50", borderColor: "#2c3e50"}} className="btn btn-danger">Delete Completed Tasks</button>
+          </td>
+        </tr>
+      </tfoot>
     </Table>
   </Container>
   );
