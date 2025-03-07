@@ -1,5 +1,5 @@
 import Calendar from "../components/Calendar";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import EventForm from "../components/EventForm";
 import TaskList from "../components/TaskList";
@@ -16,6 +16,10 @@ function Dashboard() {
     setTasks([...tasks, newTask]);
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   return (
     <>
       <Header />

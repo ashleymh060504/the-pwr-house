@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Button, Form, ListGroup } from "react-bootstrap";
+import { jwtDecode } from "jwt-decode";
 
 const Comments = ({ postId, token }) => {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
+  const currentUser = jwtDecode(token);
+  console.log(currentUser);
 
   // Fetch comments when component mounts or postId changes
   useEffect(() => {
@@ -41,7 +44,7 @@ const Comments = ({ postId, token }) => {
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({ 
-          postId: postId._id,
+          postId: postId,
           content: newComment 
         }),
       });
@@ -82,10 +85,20 @@ const Comments = ({ postId, token }) => {
       <ListGroup>
         {comments.map((comment) => (
           <ListGroup.Item key={comment._id} className="d-flex justify-content-between align-items-center">
-            <span>{comment.text}</span>
-            <Button variant="danger" size="sm" onClick={() => handleDeleteComment(comment._id)}>
-              Delete
-            </Button>
+            <span>{comment.content}</span>
+           {
+              // Show delete button only if the comment was posted by the current user
+              comment.userId === currentUser.id && (
+                <Button
+                  variant="danger"
+                  style={{ color: "#4a5759", backgroundColor: "#f7e1d7" }}
+                  size="sm"
+                  onClick={() => handleDeleteComment(comment._id)}
+                >
+                  Delete
+                </Button>
+              )
+           }
           </ListGroup.Item>
         ))}
       </ListGroup>
@@ -99,7 +112,7 @@ const Comments = ({ postId, token }) => {
             onChange={(e) => setNewComment(e.target.value)}
           />
         </Form.Group>
-        <Button type="submit" variant="primary" className="mt-2">
+        <Button type="submit" style={{ color: "#4a5759", backgroundColor: "#edafb8" }} variant="primary" className="mt-2">
           Add Comment
         </Button>
       </Form>

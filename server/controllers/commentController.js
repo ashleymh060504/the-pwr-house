@@ -44,9 +44,9 @@ export const addComment = async (req, res) => {
 export const getCommentsByPost = async (req, res) => {
   try {
     console.log("Received postId:", req.params.postId);
-    const { postId } = new mongoose.Types.ObjectId(req.params.postId);
+    const postId = new mongoose.Types.ObjectId(req.params.postId);
 
-    const comments = await Comment.find({ post: postId }).populate("userId", "firstName lastName"); // Populate user details
+    const comments = await Comment.find({ postId }).populate("userId", "firstName lastName"); // Populate user details
     console.log("Comments found:", comments);
     res.status(200).json(comments);
   } catch (error) {

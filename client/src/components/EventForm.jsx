@@ -80,7 +80,7 @@ const EventForm = ({ onEventAdded, setOnEventAdded }) => {
       </Form.Group>
       <Form.Label>Category</Form.Label>
       <select className= "form-select form-select-sm" aria-label="Small select example" value={category} onChange={(e) => setCategory(e.target.value)}>
-        <option selected>Select Category</option>
+        <option value="selectCategory" disabled>Select Category</option>
         <option value="Work">Work</option>
         <option value="Home">Home</option>
       </select>

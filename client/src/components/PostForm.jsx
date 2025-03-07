@@ -22,10 +22,11 @@ const PostForm = ({ token, onPostAdded }) => {
         as="textarea"
         placeholder="What's on your mind?"
         value={content}
+        style={{backgroundColor: "#b0c4b1", borderColor: "#4a5759"}} 
         onChange={(e) => setContent(e.target.value)}
         required
       />
-      <Button type="submit" className="mt-2">
+      <Button type="submit" className="mt-2" style={{ color: "#4a5759", backgroundColor: "#edafb8" }}>
         Post
       </Button>
     </Form>

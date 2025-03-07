@@ -7,7 +7,7 @@ const Welcome = () => {
             <section>
                 <h1>Welcome.</h1>
                 <br></br>
-                <p>This site is for all of you Moms and Dads out there, working from home and facing the daily challenge of balancing both work and the needs of your child(ren), sometimes simultaneously!</p>
+                <p>This site is for all of you parents out there, working from home and facing the daily challenge of balancing both work and the needs of your child(ren), sometimes simultaneously!</p>
                 <p>Create an account today to get organized, separating your "Work" and "Home" tasks and calendar, while keeping it all in one place!</p>
             </section>
             <br></br>

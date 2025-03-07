@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import Post from "./Post";
+import { jwtDecode } from "jwt-decode";
+import Comments from "./Comments";
 
 const PostList = ({ token }) => {
   const [posts, setPosts] = useState([]);
+  const currentUser = jwtDecode(token);
+
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -17,7 +21,9 @@ const PostList = ({ token }) => {
         }
   
         const data = await res.json();
-        setPosts(data.map(post => ({ content: post.content, user: post.userId, _id: post._id })));
+        const mappedData = data.map(post => ({ content: post.content, user: post.userId, _id: post._id }))
+        setPosts(mappedData);
+        console.log(mappedData)
       } catch (error) {
         console.error("Error fetching posts:", error);
       }
@@ -46,18 +52,31 @@ const PostList = ({ token }) => {
 
   return (
     <div>
-      {posts.map((post) => (
+      {/* {posts.map((post) => (
          <Post key={post._id} post={post} token={token} />
-      ))}
+      ))} */}
       {posts.map((post) => (
         <div key={post._id} className="p-3 border mb-3">
-          <h5>{post.user.name}</h5>
+          <h8 style={{color: "#b0c4b1"}}>-{post.user.firstName}</h8>
           <p>{post.content}</p>
-          {post.user._id === localStorage.getItem("userId") && (
-            <Button variant="danger" onClick={() => handleDelete(post._id)}>
+
+          <div id={`comments-${post._id}`} style={{display: "none"}}>
+            <Comments postId={post._id} token={token} />
+            <hr />
+          </div>
+
+          <Button variant="primary" style={{ color: "#4a5759", backgroundColor: "#b0c4b1" }} onClick={() => {
+            const targetDiv = document.getElementById(`comments-${post._id}`);
+            targetDiv.style.display = targetDiv.style.display === "none" ? "block" : "none";
+          }}>
+              Comments
+            </Button>
+          {post.user._id === currentUser.id && (
+            <Button variant="danger" style={{ color: "#4a5759", backgroundColor: "#f7e1d7" }} onClick={() => handleDelete(post._id)}>
               Delete
             </Button>
           )}
+          <hr />
         </div>
       ))}
     </div>
