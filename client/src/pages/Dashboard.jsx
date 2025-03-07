@@ -33,12 +33,16 @@ function Dashboard() {
             <TaskList onTaskAdded={onTaskAdded}/>
           </Col>
         </Row>
-        <Row>
-          <Col xs={12} md={6}>
-            <EventForm onEventAdded={onEventAdded} setOnEventAdded={setOnEventAdded}/>
+        <Row className="justify-content-center">
+          <Col xs={12} md={6} className="d-flex justify-content-center">
+            <div style={{ width: "100%", maxWidth: "500px" }}>
+              <EventForm onEventAdded={onEventAdded} setOnEventAdded={setOnEventAdded}/>
+            </div>
           </Col>
-          <Col xs={12} md={6}>
-            <TaskForm onTaskAdded={onTaskAdded} setOnTaskAdded={setOnTaskAdded}/>
+          <Col xs={12} md={6} className="d-flex justify-content-center">
+            <div style={{ width: "100%", maxWidth: "500px" }}>
+              <TaskForm onTaskAdded={onTaskAdded} setOnTaskAdded={setOnTaskAdded}/>
+            </div>
           </Col>
       </Row>
     </Container>
