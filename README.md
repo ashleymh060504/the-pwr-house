@@ -22,4 +22,6 @@ In the terminal at the route of the project, enter npm install to install the de
 3. Also included in the Dashboard is the To Do task list, where again you can view, add and organize your tasks by Work or Home. 
 4. From the Dashboard, you can click on the link in the navbar to access PWR Connect, where you can post new, or add comments to another user's post. 
 
-![alt text](assets/images/screenshot.png)
+![Login page](client/src/assets/PWR-screenshot-1.png)
+![Dashboard](client/src/assets/PWR-screenshot-2.png)
+![PWR Connect](client/src/assets/PWR-screenshot-3.png)
