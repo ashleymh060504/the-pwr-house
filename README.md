@@ -3,7 +3,7 @@
 
 ## Description
 
-As a soon-to-be bootcamp graduate, I am planning to work fully remote so that I can be flexible and available to my 4 children. Having worked full time from home in the past, while caring for my very young children, I recall the complicated daily struggle of balancing both work and family simultaneously. I created this application as a way to help organize parents working remotely, as well as provide a space for them to connect with one another for encouragement and co-strategizing. 
+As a soon-to-be bootcamp graduate, I am planning to work fully remote so that I can be flexible and available to my 4 children. Having worked full time from home in the past, while caring for my very young children, I recall the complicated daily struggle of balancing both work and family simultaneously. Using React, Node.js, Express.js, MongoDB and Mongoose ODM, and JWT for authentication, I created this application as a way to help organize parents working remotely, as well as provide a space for them to connect with one another for encouragement and co-strategizing. 
 
 ## Installation
 
