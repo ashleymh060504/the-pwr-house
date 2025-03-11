@@ -88,7 +88,7 @@ const Comments = ({ postId, token }) => {
             <span>{comment.content}</span>
            {
               // Show delete button only if the comment was posted by the current user
-              comment.userId === currentUser.id && (
+              comment.userId._id === currentUser.id && (
                 <Button
                   variant="danger"
                   style={{ color: "#4a5759", backgroundColor: "#f7e1d7" }}

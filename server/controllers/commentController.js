@@ -33,8 +33,9 @@ export const addComment = async (req, res) => {
 
     post.comments.push(newComment._id); // Add comment to post's comments array
     await post.save();
+    const populatedComment = await newComment.populate("userId", "firstName lastName")
 
-    res.status(201).json(newComment);
+    res.status(201).json(populatedComment);
   } catch (error) {
     console.error("Error adding comment:", error);
     res.status(500).json({ message: "Server error." });
