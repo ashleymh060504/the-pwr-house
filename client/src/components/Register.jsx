@@ -17,16 +17,17 @@ const Register = () => {
         body: JSON.stringify({ firstName, lastName, email, password }),
       });
 
-      debugger;
       const data = await res.json();
       if (!res.ok) throw new Error(data.message);
 
-      navigate("/dashboard");
+      alert("Registration successful! Please log in with your new credentials.");
+      window.location.reload(); // Refreshes the page
     } catch (error) {
       console.error(error);
       alert("Registration failed");
     }
-  };
+};
+
   const buttonStyle = {
     backgroundColor: '#edafb8'
   };
