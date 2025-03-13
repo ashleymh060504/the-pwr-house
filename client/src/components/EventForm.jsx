@@ -48,6 +48,7 @@ const EventForm = ({ onEventAdded, setOnEventAdded }) => {
   return (
 
   <Form style={formStyle} onSubmit={handleSubmit} className="p-4 border rounded">
+      <h2 style={{textAlign: 'center'}}>Add Events</h2>
       
       <Form.Group className="mb-3">
         <Form.Label>Event Title</Form.Label>

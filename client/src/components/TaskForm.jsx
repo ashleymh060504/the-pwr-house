@@ -76,6 +76,7 @@ const TaskForm = ({ onTaskAdded, setOnTaskAdded }) => {
   return (
     <Form style={formStyle} onSubmit={handleSubmit} className="p-4 border rounded">
       {error && <Alert variant="danger">{error}</Alert>}
+      <h2 style={{textAlign: 'center'}}>Add Tasks</h2>
       
       <Form.Group className="mb-3">
         <Form.Label>Task Name</Form.Label>
